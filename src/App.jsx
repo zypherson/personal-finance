@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { getTransactions, saveTransactions } from "./utils/storage";
+import TransactionForm from "./components/TransactionForm";
 
 function App() {
   const [transactions, setTransactions] = useState(() =>
@@ -16,7 +17,7 @@ function App() {
   return (
     <div>
       <h1>Personal Finance Snapshot</h1>
-
+      <TransactionForm onAdd={addTransaction} />
       <p>Transactions: {transactions.length}</p>
     </div>
   );
