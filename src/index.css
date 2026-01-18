@@ -109,3 +109,25 @@ button:focus-visible {
 .transaction-meta {
   text-align: right;
 }
+.summary {
+  display: flex;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.summary-card {
+  flex: 1;
+  padding: 16px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.income {
+  color: green;
+  font-weight: bold;
+}
+
+.expense {
+  color: crimson;
+  font-weight: bold;
+}

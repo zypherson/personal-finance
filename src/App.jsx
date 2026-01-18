@@ -3,6 +3,8 @@ import { useState } from "react";
 import { getTransactions, saveTransactions } from "./utils/storage";
 import TransactionForm from "./components/TransactionForm";
 import TransactionList from "./components/TransactionList";
+import Summary from "./components/Summary";
+
 
 function App() {
   const [transactions, setTransactions] = useState(() =>
@@ -20,6 +22,8 @@ function App() {
       <h1>Personal Finance Snapshot</h1>
       <TransactionForm onAdd={addTransaction} />
       <TransactionList transactions={transactions} />
+      <Summary transactions={transactions} />
+
       <p>Transactions: {transactions.length}</p>
     </div>
   );
