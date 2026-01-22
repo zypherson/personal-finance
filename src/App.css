@@ -40,3 +40,15 @@
 .read-the-docs {
   color: #888;
 }
+.delete-btn {
+  margin-left: 10px;
+  border: none;
+  background: transparent;
+  color: #999;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.delete-btn:hover {
+  color: crimson;
+}
