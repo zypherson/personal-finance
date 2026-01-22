@@ -1,4 +1,4 @@
-function TransactionList({ transactions }) {
+function TransactionList({ transactions, onDelete }) {
     if (transactions.length === 0) {
       return <p>No transactions yet.</p>;
     }
@@ -24,6 +24,13 @@ function TransactionList({ transactions }) {
                   {t.type === "expense" ? "-" : "+"}$
                   {t.amount.toFixed(2)}
                 </span>
+  
+                <button
+                  className="delete-btn"
+                  onClick={() => onDelete(t.id)}
+                >
+                  ✕
+                </button>
               </div>
             </li>
           ))}
