@@ -10,6 +10,8 @@ function App() {
   const [transactions, setTransactions] = useState(() =>
     getTransactions()
   );
+  const [editingTransaction, setEditingTransaction] = useState(null);
+
 
   function addTransaction(newTransaction) {
     const updated = [newTransaction, ...transactions];
@@ -20,7 +22,22 @@ function App() {
     const updated = transactions.filter((t) => t.id !== id);
     setTransactions(updated);
     saveTransactions(updated);
+  
+    if (editingTransaction?.id === id) {
+      setEditingTransaction(null);
+    }
   }
+  
+  function updateTransaction(updatedTransaction) {
+    const updated = transactions.map((t) =>
+      t.id === updatedTransaction.id ? updatedTransaction : t
+    );
+  
+    setTransactions(updated);
+    saveTransactions(updated);
+    setEditingTransaction(null);
+  }
+  
 
   return (
     <div>
