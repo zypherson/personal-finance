@@ -42,8 +42,12 @@ function App() {
   return (
     <div>
       <h1>Personal Finance Snapshot</h1>
-      <TransactionForm onAdd={addTransaction} />
-      <TransactionList transactions={transactions} onDelete={deleteTransaction} />
+      <TransactionForm
+  onAdd={addTransaction}
+  onUpdate={updateTransaction}
+  editingTransaction={editingTransaction}
+  onCancelEdit={() => setEditingTransaction(null)}
+/>
       <Summary transactions={transactions} />
  
       <p>Transactions: {transactions.length}</p>
