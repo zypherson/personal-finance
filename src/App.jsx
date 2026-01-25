@@ -49,7 +49,11 @@ function App() {
   onCancelEdit={() => setEditingTransaction(null)}
 />
       <Summary transactions={transactions} />
- 
+      <TransactionList
+  transactions={transactions}
+  onDelete={deleteTransaction}
+  onEdit={setEditingTransaction}
+/>
       <p>Transactions: {transactions.length}</p>
     </div>
   );
