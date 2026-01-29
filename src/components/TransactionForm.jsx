@@ -10,35 +10,50 @@ const CATEGORIES = [
   "Other",
 ];
 
-function TransactionForm({ onAdd }) {
-  const [type, setType] = useState("expense");
-  const [amount, setAmount] = useState("");
-  const [category, setCategory] = useState("Food");
-  const [description, setDescription] = useState("");
-  const [date, setDate] = useState(
+function TransactionForm({  onAdd,
+  onUpdate,
+  editingTransaction,
+  onCancelEdit,}) {
+  const isEditing = Boolean(editingTransaction);
+
+const [type, setType] = useState(editingTransaction?.type || "expense");
+const [amount, setAmount] = useState(editingTransaction?.amount || "");
+const [category, setCategory] = useState(
+  editingTransaction?.category || "Food"
+);
+const [description, setDescription] = useState(
+  editingTransaction?.description || ""
+);
+const [date, setDate] = useState(
+  editingTransaction?.date ||
     new Date().toISOString().split("T")[0]
-  );
+);
+
+
 
   function handleSubmit(e) {
-    e.preventDefault();
+  e.preventDefault();
+  if (!amount) return;
 
-    if (!amount) return;
+  const transaction = {
+    id: editingTransaction?.id || crypto.randomUUID(),
+    type,
+    amount: Number(amount),
+    category,
+    description,
+    date,
+  };
 
-    const newTransaction = {
-      id: crypto.randomUUID(),
-      type,
-      amount: Number(amount),
-      category,
-      description,
-      date,
-    };
-
-    onAdd(newTransaction);
-
-    // reset
-    setAmount("");
-    setDescription("");
+  if (isEditing) {
+    onUpdate(transaction);
+  } else {
+    onAdd(transaction);
   }
+
+  setAmount("");
+  setDescription("");
+}
+
 
   return (
     <form onSubmit={handleSubmit} className="transaction-form">
@@ -80,7 +95,19 @@ function TransactionForm({ onAdd }) {
         onChange={(e) => setDate(e.target.value)}
       />
 
-      <button type="submit">Add</button>
+      <button type="submit">
+  {isEditing ? "Save Changes" : "Add"}
+</button>
+
+{isEditing && (
+  <button
+    type="button"
+    className="cancel-btn"
+    onClick={onCancelEdit}
+  >
+    Cancel
+  </button>
+)}
     </form>
   );
 }
