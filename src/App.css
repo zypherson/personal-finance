@@ -52,3 +52,19 @@
 .delete-btn:hover {
   color: crimson;
 }
+.edit-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 6px;
+  color: #555;
+}
+
+.edit-btn:hover {
+  color: black;
+}
+
+.cancel-btn {
+  margin-left: 10px;
+  padding: 6px 10px;
+}
