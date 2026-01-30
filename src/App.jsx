@@ -12,6 +12,13 @@ function App() {
   );
   const [editingTransaction, setEditingTransaction] = useState(null);
 
+  const [selectedMonth, setSelectedMonth] = useState(() => {
+  return new Date().toISOString().slice(0, 7); // YYYY-MM
+  });
+  const filteredTransactions = transactions.filter((t) =>
+  t.date.startsWith(selectedMonth)
+);
+
 
   function addTransaction(newTransaction) {
     const updated = [newTransaction, ...transactions];
@@ -48,9 +55,10 @@ function App() {
   editingTransaction={editingTransaction}
   onCancelEdit={() => setEditingTransaction(null)}
 />
-      <Summary transactions={transactions} />
-      <TransactionList
-  transactions={transactions}
+      <Summary transactions={filteredTransactions} />
+
+<TransactionList
+  transactions={filteredTransactions}
   onDelete={deleteTransaction}
   onEdit={setEditingTransaction}
 />
