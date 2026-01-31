@@ -43,7 +43,7 @@ function App() {
     setTransactions(updated);
     saveTransactions(updated);
     setEditingTransaction(null);
-  }
+  } 
   
 
   return (
