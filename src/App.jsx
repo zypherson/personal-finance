@@ -62,8 +62,17 @@ function App() {
   onDelete={deleteTransaction}
   onEdit={setEditingTransaction}
 />
+<div className="month-filter">
+  <label>Month:</label>
+  <input
+    type="month"
+    value={selectedMonth}
+    onChange={(e) => setSelectedMonth(e.target.value)}
+  />
+</div>
       <p>Transactions: {transactions.length}</p>
     </div>
+    
   );
 }
 
