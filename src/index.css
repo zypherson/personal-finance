@@ -137,3 +137,6 @@ button:focus-visible {
   align-items: center;
   gap: 10px;
 }
+.recharts-wrapper {
+  margin-bottom: 30px;
+}
