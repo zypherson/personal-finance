@@ -4,6 +4,7 @@ import { getTransactions, saveTransactions } from "./utils/storage";
 import TransactionForm from "./components/TransactionForm";
 import TransactionList from "./components/TransactionList";
 import Summary from "./components/Summary";
+import ExpenseChart from "./components/ExpenseChart";
 
 
 function App() {
@@ -56,6 +57,8 @@ function App() {
   onCancelEdit={() => setEditingTransaction(null)}
 />
       <Summary transactions={filteredTransactions} />
+      <ExpenseChart transactions={filteredTransactions} />
+
 
 <TransactionList
   transactions={filteredTransactions}
