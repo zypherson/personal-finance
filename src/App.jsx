@@ -5,6 +5,7 @@ import TransactionForm from "./components/TransactionForm";
 import TransactionList from "./components/TransactionList";
 import Summary from "./components/Summary";
 import ExpenseChart from "./components/ExpenseChart";
+import { getBudgets, saveBudgets } from "./utils/budgetStorage";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
     getTransactions()
   );
   const [editingTransaction, setEditingTransaction] = useState(null);
+  const [budgets, setBudgets] = useState(() => getBudgets());
 
   const [selectedMonth, setSelectedMonth] = useState(() => {
   return new Date().toISOString().slice(0, 7); // YYYY-MM
@@ -45,7 +47,16 @@ function App() {
     saveTransactions(updated);
     setEditingTransaction(null);
   } 
-  
+  function updateBudget(category, amount) {
+  const updated = {
+    ...budgets,
+    [category]: Number(amount),
+  };
+
+  setBudgets(updated);
+  saveBudgets(updated);
+}
+
 
   return (
     <div>
