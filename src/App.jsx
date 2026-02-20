@@ -6,6 +6,8 @@ import TransactionList from "./components/TransactionList";
 import Summary from "./components/Summary";
 import ExpenseChart from "./components/ExpenseChart";
 import { getBudgets, saveBudgets } from "./utils/budgetStorage";
+import BudgetForm from "./components/BudgetForm";
+import BudgetList from "./components/BudgetList";
 
 
 function App() {
@@ -69,7 +71,12 @@ function App() {
 />
       <Summary transactions={filteredTransactions} />
       <ExpenseChart transactions={filteredTransactions} />
+      <BudgetForm onSetBudget={updateBudget} />
 
+    <BudgetList
+     budgets={budgets}
+     transactions={filteredTransactions}
+    />
 
 <TransactionList
   transactions={filteredTransactions}
