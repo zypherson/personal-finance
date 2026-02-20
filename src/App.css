@@ -68,3 +68,17 @@
   margin-left: 10px;
   padding: 6px 10px;
 }
+.budget-card {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin: 10px 0;
+}
+
+.over-budget {
+  color: crimson;
+  font-weight: bold;
+}
+
+.budget-form {
+  margin: 20px 0;
+}
