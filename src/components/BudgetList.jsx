@@ -1,10 +1,14 @@
-function BudgetList({ budgets, transactions }) {
-  // Only expense transactions
+import { useState } from "react";
+
+function BudgetList({ budgets, transactions, onUpdateBudget }) {
+  const [editingCategory, setEditingCategory] = useState(null);
+  const [editValue, setEditValue] = useState("");
+
+  // Only expenses
   const expenses = transactions.filter(
     (t) => t.type === "expense"
   );
 
-  // Sum expenses by category
   const spentByCategory = expenses.reduce((acc, curr) => {
     acc[curr.category] =
       (acc[curr.category] || 0) + curr.amount;
@@ -22,6 +26,17 @@ function BudgetList({ budgets, transactions }) {
     );
   }
 
+  function startEditing(category) {
+    setEditingCategory(category);
+    setEditValue(budgets[category]);
+  }
+
+  function saveEdit() {
+    onUpdateBudget(editingCategory, editValue);
+    setEditingCategory(null);
+    setEditValue("");
+  }
+
   return (
     <div>
       <h2>Budget Status</h2>
@@ -35,9 +50,36 @@ function BudgetList({ budgets, transactions }) {
 
         return (
           <div key={category} className="budget-card">
-            <strong>{category}</strong>
+            <div className="budget-header">
+              <strong>{category}</strong>
 
-            {/* progress bar */}
+              {editingCategory === category ? (
+                <>
+                  <input
+                    type="number"
+                    value={editValue}
+                    onChange={(e) =>
+                      setEditValue(e.target.value)
+                    }
+                    className="budget-input"
+                  />
+                  <button onClick={saveEdit}>Save</button>
+                  <button
+                    onClick={() => setEditingCategory(null)}
+                  >
+                    Cancel
+                  </button>
+                </>
+              ) : (
+                <button
+                  className="edit-btn"
+                  onClick={() => startEditing(category)}
+                >
+                  ✎
+                </button>
+              )}
+            </div>
+
             <div className="progress-bar">
               <div
                 className={`progress-fill ${
