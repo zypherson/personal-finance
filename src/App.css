@@ -82,3 +82,38 @@
 .budget-form {
   margin: 20px 0;
 }
+.budget-card {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 6px;
+}
+
+.progress-bar {
+  height: 12px;
+  background: #eee;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 6px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #00c49f;
+  transition: width 0.3s ease;
+}
+
+/* nearing limit */
+.progress-fill.warning {
+  background: #ffbb28;
+}
+
+/* over budget */
+.progress-fill.over {
+  background: crimson;
+}
+
+.over-budget {
+  color: crimson;
+  font-weight: bold;
+}
