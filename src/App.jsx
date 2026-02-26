@@ -74,9 +74,11 @@ function App() {
       <BudgetForm onSetBudget={updateBudget} />
 
     <BudgetList
-     budgets={budgets}
-     transactions={filteredTransactions}
-    />
+  budgets={budgets}
+  transactions={filteredTransactions}
+  onUpdateBudget={updateBudget}
+/>
+
 
 <TransactionList
   transactions={filteredTransactions}
