@@ -140,3 +140,13 @@ button:focus-visible {
 .recharts-wrapper {
   margin-bottom: 30px;
 }
+.budget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.budget-input {
+  width: 80px;
+  margin-left: 10px;
+}
