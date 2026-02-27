@@ -47,7 +47,7 @@ function BudgetList({ budgets, transactions, onUpdateBudget }) {
 
         const percent = Math.min((spent / limit) * 100, 100);
         const overBudget = spent > limit;
-
+        const remaining = limit - spent;
         return (
           <div key={category} className="budget-card">
             <div className="budget-header">
@@ -93,9 +93,14 @@ function BudgetList({ budgets, transactions, onUpdateBudget }) {
               />
             </div>
 
-            <p>
-              ${spent.toFixed(2)} / ${limit.toFixed(2)} (
-              {percent.toFixed(0)}%)
+             <p
+                className={
+                overBudget ? "remaining over-budget" : "remaining"
+            }
+            >
+            {overBudget
+                ? `Over by $${Math.abs(remaining).toFixed(2)}`
+                : `Remaining: $${remaining.toFixed(2)}`}
             </p>
 
             {overBudget && (
