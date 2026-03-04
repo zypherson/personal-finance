@@ -61,42 +61,45 @@ function App() {
 
 
   return (
-    <div>
-      <h1>Personal Finance Snapshot</h1>
-      <TransactionForm
-  onAdd={addTransaction}
-  onUpdate={updateTransaction}
-  editingTransaction={editingTransaction}
-  onCancelEdit={() => setEditingTransaction(null)}
-/>
-      <Summary transactions={filteredTransactions} />
-      <ExpenseChart transactions={filteredTransactions} />
-      <BudgetForm onSetBudget={updateBudget} />
+  <div className="app-container">
+    <h1>Personal Finance Snapshot</h1>
+
+    <div className="month-filter">
+      <label>Month:</label>
+      <input
+        type="month"
+        value={selectedMonth}
+        onChange={(e) => setSelectedMonth(e.target.value)}
+      />
+    </div>
+
+    <Summary transactions={filteredTransactions} />
+
+    <ExpenseChart transactions={filteredTransactions} />
+
+    <BudgetForm onSetBudget={updateBudget} />
 
     <BudgetList
-  budgets={budgets}
-  transactions={filteredTransactions}
-  onUpdateBudget={updateBudget}
-/>
+      budgets={budgets}
+      transactions={filteredTransactions}
+      onUpdateBudget={updateBudget}
+    />
 
+    <TransactionForm
+      onAdd={addTransaction}
+      onUpdate={updateTransaction}
+      editingTransaction={editingTransaction}
+      onCancelEdit={() => setEditingTransaction(null)}
+    />
 
-<TransactionList
-  transactions={filteredTransactions}
-  onDelete={deleteTransaction}
-  onEdit={setEditingTransaction}
-/>
-<div className="month-filter">
-  <label>Month:</label>
-  <input
-    type="month"
-    value={selectedMonth}
-    onChange={(e) => setSelectedMonth(e.target.value)}
-  />
-</div>
-      <p>Transactions: {transactions.length}</p>
-    </div>
-    
-  );
+    <TransactionList
+      transactions={filteredTransactions}
+      onDelete={deleteTransaction}
+      onEdit={setEditingTransaction}
+    />
+  </div>
+);
+
 }
 
 export default App;
