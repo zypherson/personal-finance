@@ -150,3 +150,16 @@ button:focus-visible {
   width: 80px;
   margin-left: 10px;
 }
+.summary {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.summary-card {
+  flex: 1;
+  padding: 16px;
+  border: 1px solid #ddd;
+  text-align: center;
+  border-radius: 6px;
+}
