@@ -168,3 +168,16 @@ button:focus-visible {
     flex-direction: column;
   }
 }
+.transaction-form,
+.budget-form {
+  max-width: 100%;
+}
+
+.transaction-form input,
+.transaction-form select,
+.budget-form input,
+.budget-form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
