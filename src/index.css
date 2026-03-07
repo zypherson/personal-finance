@@ -181,3 +181,17 @@ button:focus-visible {
   padding: 10px;
   margin-bottom: 10px;
 }
+.transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.transaction-meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
