@@ -205,3 +205,6 @@ button:focus-visible {
     margin-top: 6px;
   }
 }
+.recharts-responsive-container {
+  margin-bottom: 30px;
+}
