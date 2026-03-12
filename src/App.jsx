@@ -58,6 +58,11 @@ function App() {
   setBudgets(updated);
   saveBudgets(updated);
 }
+const balance = filteredTransactions.reduce((acc, t) => {
+  return t.type === "income"
+    ? acc + t.amount
+    : acc - t.amount;
+}, 0);
 
 
   return (
