@@ -8,6 +8,7 @@ import ExpenseChart from "./components/ExpenseChart";
 import { getBudgets, saveBudgets } from "./utils/budgetStorage";
 import BudgetForm from "./components/BudgetForm";
 import BudgetList from "./components/BudgetList";
+import Header from "./components/Header";
 
 
 function App() {
@@ -67,7 +68,7 @@ const balance = filteredTransactions.reduce((acc, t) => {
 
   return (
   <div className="app-container">
-    <h1>Personal Finance Snapshot</h1>
+    <Header balance={balance} selectedMonth={selectedMonth} />
 
     <div className="month-filter">
       <label>Month:</label>
