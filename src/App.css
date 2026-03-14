@@ -117,3 +117,40 @@
   color: crimson;
   font-weight: bold;
 }
+  .dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 22px;
+}
+
+.month-label {
+  font-size: 14px;
+  color: #666;
+}
+
+.header-right {
+  text-align: right;
+}
+
+.balance-label {
+  font-size: 13px;
+  color: #888;
+}
+
+.balance-value {
+  font-size: 20px;
+  font-weight: bold;
+}
