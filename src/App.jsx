@@ -78,6 +78,15 @@ const balance = filteredTransactions.reduce((acc, t) => {
         value={selectedMonth}
         onChange={(e) => setSelectedMonth(e.target.value)}
       />
+       <button
+    className="export-btn"
+    onClick={() =>
+      exportTransactionsToCSV(
+        filteredTransactions,
+        selectedMonth
+      )
+    }
+    ></button>
     </div>
 
     <Summary transactions={filteredTransactions} />
