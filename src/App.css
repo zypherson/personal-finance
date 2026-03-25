@@ -165,3 +165,16 @@
     text-align: left;
   }
 }
+.export-btn {
+  padding: 8px 12px;
+  margin-left: 10px;
+  border: none;
+  background: #0077cc;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.export-btn:hover {
+  background: #005fa3;
+}
