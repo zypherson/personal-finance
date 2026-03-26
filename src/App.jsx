@@ -10,6 +10,10 @@ import BudgetForm from "./components/BudgetForm";
 import BudgetList from "./components/BudgetList";
 import Header from "./components/Header";
 import { exportTransactionsToCSV } from "./utils/exportCSV";
+import { useEffect} from "react";
+import { auth } from "./firebase";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import Auth from "./components/Auth";
 
 
 function App() {
