@@ -22,7 +22,7 @@ function App() {
   );
   const [editingTransaction, setEditingTransaction] = useState(null);
   const [budgets, setBudgets] = useState(() => getBudgets());
-
+  const [user, setUser] = useState(null);
   const [selectedMonth, setSelectedMonth] = useState(() => {
   return new Date().toISOString().slice(0, 7); // YYYY-MM
   });
@@ -69,8 +69,16 @@ const balance = filteredTransactions.reduce((acc, t) => {
     ? acc + t.amount
     : acc - t.amount;
 }, 0);
+useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
 
-
+  return () => unsubscribe();
+}, []);
+if (!user) {
+  return <Auth onLogin={() => {}} />;
+}
   return (
   <div className="app-container">
     <Header balance={balance} selectedMonth={selectedMonth} />
