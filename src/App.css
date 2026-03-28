@@ -178,3 +178,23 @@
 .export-btn:hover {
   background: #005fa3;
 }
+.auth-container {
+  max-width: 300px;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-container input {
+  padding: 10px;
+}
+
+.auth-container button {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.error {
+  color: crimson;
+}

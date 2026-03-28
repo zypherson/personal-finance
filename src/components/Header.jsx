@@ -16,6 +16,7 @@ function Header({ balance, selectedMonth }) {
         <span className="balance-value">
           ${balance.toFixed(2)}
         </span>
+        
       </div>
     </header>
   );
